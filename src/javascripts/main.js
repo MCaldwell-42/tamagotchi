@@ -1,11 +1,11 @@
 import '../styles/main.scss';
-import util from './helpers/util';
-import eats from './components/eat';
+// import util from './helpers/util';
+import quad from './components/quads';
 
 console.error('hi');
 
 const init = () => {
-  eats.buildEats();
+  quad.quad1();
 };
 
 init();
