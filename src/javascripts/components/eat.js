@@ -1,12 +1,11 @@
 import util from '../helpers/util';
 
-let fullness = 100;
+let full = 100;
 
 const eatStats = {
   divId: 'eat',
   name: 'Eat',
-  meter: 'fullness:',
-  score: fullness,
+  meter: 'full:',
   button1: '<button type="button" id="healthy">Give Apples!</button>',
   button2: '<button type="button" id="unhealthy">Give Funions!</button>',
 };
@@ -14,26 +13,26 @@ const eatStats = {
 const getEats = () => eatStats;
 
 const buildEats = () => {
-  util.domStringBuilder(eatStats);
+  util.domStringBuilder(eatStats, full);
 };
 
 const eatHealthy = () => {
-  if (fullness < 100) {
-    fullness += 10;
-  } else if (fullness >= 100) {
-    fullness += 0;
+  if (full < 100) {
+    full += 10;
+  } else if (full >= 100) {
+    full += 0;
   }
   buildEats();
 };
 
 const eatJunk = () => {
-  if (fullness > 0) {
-    fullness -= 50;
-  } else if (fullness <= 0) {
-    fullness += 0;
+  if (full > 0) {
+    full -= 50;
+  } else if (full <= 0) {
+    full += 0;
   }
   buildEats();
-  console.error(fullness);
+  console.error(eatStats, full);
 };
 
 
