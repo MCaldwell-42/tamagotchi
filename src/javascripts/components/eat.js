@@ -1,41 +1,44 @@
 import util from '../helpers/util';
 
-let full = 100;
 
-const eatStats = {
-  divId: 'eat',
-  name: 'Eat',
-  meter: 'full:',
-  button1: '<button type="button" id="healthy">Give Apples!</button>',
-  button2: '<button type="button" id="unhealthy">Give Funions!</button>',
-};
+let fullness = 100;
 
-const getEats = () => eatStats;
-
-const buildEats = () => {
-  util.domStringBuilder(eatStats, full);
-};
-
-const eatHealthy = () => {
-  if (full < 100) {
-    full += 10;
-  } else if (full >= 100) {
-    full += 0;
+const eatFunction = (e) => {
+  e.preventDefault();
+  if (e.target.id === 'healthy') {
+    fullness += 10;
+    if (fullness > 100) {
+      fullness = 100;
+    }
+    document.getElementById('eatBar').value = fullness;
+  } else {
+    fullness -= 30;
+    if (fullness < 0) {
+      fullness = 0;
+    }
+    document.getElementById('eatBar').value = fullness;
   }
-  buildEats();
 };
 
-const eatJunk = () => {
-  if (full > 0) {
-    full -= 50;
-  } else if (full <= 0) {
-    full += 0;
-  }
-  buildEats();
-  console.error(eatStats, full);
-};
 
+const eatBuilder = () => {
+  let domString = '';
+  domString += '<div class="quad">';
+  domString += '<div class="title">';
+  domString += '<h2>Eats<h2/>';
+  domString += '</div>';
+  domString += '<h3>Fullness:</h3>';
+  domString += `<meter id='eatBar' value="${fullness}" min="0" max="100"></meter>`;
+  domString += '</div class=buttons>';
+  domString += '<button type="button" id="healthy">Give Apples!</button>';
+  domString += '<button type="button" id="unhealthy">Give Funions!</button>';
+  domString += '</div>';
+  domString += '</div>';
+  util.printToDom('eat', domString);
+  document.getElementById('healthy').addEventListener('click', eatFunction);
+  document.getElementById('unhealthy').addEventListener('click', eatFunction);
+};
 
 export default {
-  buildEats, eatJunk, eatHealthy, getEats,
+  eatBuilder,
 };
