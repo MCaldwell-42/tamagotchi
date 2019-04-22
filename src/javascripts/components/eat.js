@@ -12,7 +12,7 @@ const eatFunction = (e) => {
     }
     document.getElementById('eatBar').value = fullness;
   } else {
-    fullness -= 30;
+    fullness -= 3;
     if (fullness < 0) {
       fullness = 0;
     }
