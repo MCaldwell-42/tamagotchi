@@ -1,5 +1,5 @@
 import util from '../helpers/util';
-
+import '../../styles/sleep.scss';
 
 let energy = 50;
 
@@ -24,12 +24,9 @@ const energyFunction = (e) => {
 const energyBuilder = () => {
   let domString = '';
   domString += '<div class="quad">';
-  domString += '<div class="title">';
+  domString += '<div class="sleep">';
   domString += '<h2>Sleep!<h2/>';
-  domString += '</div>';
-  domString += '<h3>Energy:</h3>';
-  domString += `<meter id='energyBar' value="${energy}" min="0" max="100"></meter>`;
-  domString += '</div class=buttons>';
+  domString += `<h3>Energy:  <meter id='energyBar' value="${energy}" min="0" max="100"></meter></h3>`;
   domString += '<button type="button" id="nap">Nap!</button>';
   domString += '<button type="button" id="slumber">Deep Slumber!</button>';
   domString += '</div>';

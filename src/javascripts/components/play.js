@@ -1,5 +1,5 @@
 import util from '../helpers/util';
-
+import '../../styles/play.scss';
 
 let fun = 50;
 
@@ -24,12 +24,9 @@ const funFunction = (e) => {
 const funBuilder = () => {
   let domString = '';
   domString += '<div class="quad">';
-  domString += '<div class="title">';
+  domString += '<div class="play">';
   domString += '<h2>Have Fun!<h2/>';
-  domString += '</div>';
-  domString += '<h3>fun:</h3>';
-  domString += `<meter id='funBar' value="${fun}" min="0" max="100"></meter>`;
-  domString += '</div class=buttons>';
+  domString += `<h3>Fun:  <meter id='funBar' value="${fun}" min="0" max="100"></meter></h3>`;
   domString += '<button type="button" id="super">Super Fun!</button>';
   domString += '<button type="button" id="unsuper">Slightly Fun!</button>';
   domString += '</div>';
