@@ -1,5 +1,5 @@
 import util from '../helpers/util';
-
+import '../../styles/fight.scss';
 
 let strength = 100;
 
@@ -24,12 +24,9 @@ const fightFunction = (e) => {
 const fightBuilder = () => {
   let domString = '';
   domString += '<div class="quad">';
-  domString += '<div class="title">';
+  domString += '<div class="fight">';
   domString += '<h2>Fight!<h2/>';
-  domString += '</div>';
-  domString += '<h3>strength:</h3>';
-  domString += `<meter id='fightBar' value="${strength}" min="0" max="100"></meter>`;
-  domString += '</div class=buttons>';
+  domString += `<h3>strength:  <meter id='fightBar' value="${strength}" min="0" max="100"></meter></h3>`;
   domString += '<button type="button" id="runAway">Run Away!</button>';
   domString += '<button type="button" id="violence">Commit Violence!</button>';
   domString += '</div>';

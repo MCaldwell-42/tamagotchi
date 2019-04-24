@@ -1,5 +1,5 @@
 import util from '../helpers/util';
-
+import '../../styles/eat.scss';
 
 let fullness = 100;
 
@@ -24,12 +24,9 @@ const eatFunction = (e) => {
 const eatBuilder = () => {
   let domString = '';
   domString += '<div class="quad">';
-  domString += '<div class="title">';
-  domString += '<h2>Eats<h2/>';
-  domString += '</div>';
-  domString += '<h3>Fullness:</h3>';
-  domString += `<meter id='eatBar' value="${fullness}" min="0" max="100"></meter>`;
-  domString += '</div class=buttons>';
+  domString += '<div class="eat">';
+  domString += '<h2>Eats!<h2/>';
+  domString += `<h3>Fullness:  <meter id='eatBar' value="${fullness}" min="0" max="100"></meter></h3>`;
   domString += '<button type="button" id="healthy">Give Apples!</button>';
   domString += '<button type="button" id="unhealthy">Give Funions!</button>';
   domString += '</div>';
